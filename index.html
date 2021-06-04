@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="bootstrap.min.css">
+<style>
+	@font-face {
+		font-family: 'Mada-M';
+		src: url(MadaFont/Mada-Medium.ttf) format('truetype');
+	}
+
+	@font-face {
+		font-family: 'Mada-R';
+		src: url(MadaFont/Mada-Regular.ttf) format('truetype');
+	}
+
+	@font-face {
+		font-family: 'Roboto-R';
+		src: url(RobotoFont/Roboto-Regular.ttf) format('truetype');
+	}
+
+	@font-face {
+		font-family: 'Roboto-L';
+		src: url(RobotoFont/Roboto-Light.ttf) format('truetype');
+	}
+	#firstScreen{
+		height:100vh;
+		width:100vw;
+		background-color:#7E998A;
+		overflow-y:none;
+		color:#3e3e3e;
+	}
+	#secondScreen{
+		height:100vh;
+		width:100vw;
+		background-color:#7E998A;
+		overflow-y:none;
+		color:#3e3e3e;
+	}
+	.PanelPiece{
+		
+	}
+	.title{
+		width:100%;
+		text-align:center;
+		font-family: Mada-M;
+		font-style: normal;
+		font-weight: bold;
+		font-size: 21px;
+		line-height: 33px;
+	}
+	.subtitle{
+		text-align:center;
+		font-family: Mada-M;
+		font-style: normal;
+		font-weight: bold;
+		font-size: 21px;
+		line-height: 33px;
+	}
+	.bckBtn{
+		position: fixed;
+		margin-top:2%;
+		margin-left: 2%;
+		height:33px;
+		width:33px;
+		font-size: 12px;
+		text-align:left;
+		padding:0px;
+		padding-left:3px;
+	}
+	#locOutDiv{
+		position: fixed;
+		margin-top:1.9%;
+		margin-left: 6%;
+		width:15%;
+	}
+	.btnFirst{
+		width:85%;
+		margin:auto;
+		display:flex;
+		align-items:center;
+		justify-content:center;
+		text-align:center;
+		height:150px;
+	}
+	#searchclear {
+		position: absolute;
+		right: 5px;
+		top: 0;
+		bottom: 0;
+		height: 14px;
+		margin: auto;
+		font-size: 14px;
+		cursor: pointer;
+		color: #ccc;
+	}
+	#t01{
+		width:90vw; height: 50%; background-color:#85877C;
+		align:center;
+		text-align:center;
+		padding-left:5%;
+		vertical-align: center;
+	}
+	.header{
+		font-family: Roboto-R;
+		font-style: normal;
+		font-weight: normal;
+		font-size: 35px;
+		line-height: 33px;
+	}
+	#changeTd{
+		background-color:#2DE1C2;
+		height:330px;
+		width:700px;
+	}
+	.btn-secondary{
+	background-color:#6AD5CB;
+	color:#3e3e3e;
+	}
+	
+	.btn-dark{
+	background-color:#545b62;
+	border:0px;
+	}
+	td{
+		padding-top:10px;
+		padding-bottom:10px;
+	}
+
+</style>
+
+</head>
+
+<body>
+<script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="js/popper.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="index.js"></script>
+	<div id="firstScreen" style="">
+		<div class="title" style="padding-top:8%; padding-bottom:7%">What best describes you as a person?</div>
+		<div class="btn-group btn-group-toggle btnFirst" data-toggle="buttons">
+		  <label class="btn btn-secondary active btnFirst" onclick="firstBtn(1)">
+			<input type="radio" name="options" id="option1" autocomplete="off" checked> Property Owner
+		  </label>
+		  <label class="btn btn-secondary btnFirst" onclick="firstBtn(2)">
+			<input type="radio" name="options" id="option2" autocomplete="off"> Journalist
+		  </label>
+		  <label class="btn btn-secondary btnFirst" onclick="firstBtn(3)">
+			<input type="radio" name="options" id="option3" autocomplete="off"> Concerned Citizen
+		  </label>
+		  <label class="btn btn-secondary btnFirst" onclick="firstBtn(4)">
+			<input type="radio" name="options" id="option3" autocomplete="off"> Beachgoer
+		  </label>
+		</div>
+		<div id="locDiv" class="subtitle" style="padding-top:2%; display:none;"><span>Location:</span>
+			<input class="form-control"  style="width:20%; display:inline;" type="text" placeholder="Enter Location..." id="locInput">
+			<div>
+				<button class="btn btn-dark" style="margin-top:1.5%" onclick="locBtn();">Let's Go!</button>
+			</div>
+		</div>
+	</div>
+	<div id="secondScreen" style="display:none;">
+<!---->	
+		<button class="btn btn-dark bckBtn" onclick="back();">Back</button>
+		<div id="locOutDiv" class="btn-group">
+			<input class="form-control"  style="display:inline;" type="text" id="locOut">
+			<span id="searchclear" class="glyphicon glyphicon-remove-circle"></span>
+		</div>
+		<div id="ssTitle" class="subtitle" style="padding-top:2%; padding-bottom:2%"></div>
+		<div style="margin-left:5vw;">
+		<table id="t01">
+		  <tr>
+			<th colspan=2 ><div id="ssST" class="subTitle" style="padding-left:5%;padding-bottom:3%; padding-top:3%; text-align:left;"></div></th>
+		  </tr>
+		  <tr>
+			<td id="firstTd">
+				<div class="header pb-2" style="display:block;">0.13 m</div>
+				<div class="pt-2" style="display:block;">increase in local sea level</div> 
+			</td>
+			<td id="changeTd" rowspan=2></td>
+		  </tr>
+		  <tr>
+			<td id="secondTd"><div class="header pb-2" style="display:block;">YY &#8451;</div>
+				<div class="pt-2" style="display:block;">increase in average sea temperature</div> 
+			</td>
+		  </tr>
+		   <tr>
+			<td id="thirdTd"><div class="header pb-2" style="display:block;">XX %</div>
+				<div class="pt-2" style="display:block;">increase in flood occurence</div> 
+			</td>
+			<td style="width:700px; background-color:#2DE1C2;">
+				<div style="600px;"><button type="button" class="btn btn-dark btn-lg">Export infographic</button>
+				</div>
+			</td>
+		  </tr>
+		</table>
+		</div>
+	</div>
+	
+</body>
+</html>
